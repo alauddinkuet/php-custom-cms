@@ -9,7 +9,7 @@ define('DB_USER', 'root');
 define('DB_PASS', '');
 
  
-define('BASEPATH', 'http://localhost/custom-cms/');
+define('BASEPATH', 'http://localhost/php-custom-cms/');
 define('MODELPATH','models/');
 define('CONTROLLERPATH','controllers/');
 define('VIEWPATH','views/');
