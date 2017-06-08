@@ -1,0 +1,5 @@
+# Ignore configuration files that may contain sensitive information.
+
+.idea/
+php_errors.log
+
