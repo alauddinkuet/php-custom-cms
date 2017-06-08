@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-	<title>Project Specification</title>
+	<title>PHP Custom CMS - Admin Panel</title>
 	<link rel="stylesheet" href="<?php echo BASEPATH; ?>public/css/default.css" />
     <link rel="stylesheet" href="<?php echo BASEPATH; ?>public/bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="<?php echo BASEPATH; ?>public/bootstrap/css/bootstrap-theme.min.css" />
@@ -23,5 +23,10 @@
 </div>
 <div class="container">
     <div class="content" id="content">
+        <?php echo $content;?>
+    </div>
+    <div id="footer"></div>
+</div>
 
-	
+</body>
+</html>

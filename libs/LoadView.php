@@ -32,11 +32,10 @@ class LoadView {
 
         if($return)
            return $content;
-		include VIEWPATH . '/admin/header.php';
-        echo $content;
-        include VIEWPATH . '/admin/footer.php';
 
+        include VIEWPATH . 'template_admin.php';
 	}
+
     public function renderFront($name, $data = null, $return = false) {
         if (is_array($data)) {
             extract($data);
@@ -52,10 +51,7 @@ class LoadView {
         if($return)
             return $content;
 
-        include VIEWPATH . 'header.php';
-        include VIEWPATH . $name . '.php';
-        include VIEWPATH . 'footer.php';
-
+        include VIEWPATH . 'template_front.php';
     }
 
 	public function __set($property, $value) {
