@@ -13,19 +13,11 @@ ul {
 div {
 	position: relative;
 }
-form {
-	padding:10px;
-	background: #eee;
-	border: 1px solid #aaa;
-}
 form input {
 	margin: 5px;
 	border: 1px solid #aaa;
 }
-form input[type=submit]:hover {
-	cursor: pointer;
-	background: #e3e3f3;
-} 
+
 form label{padding:5px;}
 table{font-size:14px;}
 th,td{padding:5px;}
@@ -35,7 +27,7 @@ th,td{padding:5px;}
 }
 #content {
 	background: #fff;
-	padding: 10px;
+	padding-top: 10px;
 }
 #mainMenu a {
 	color: #555;

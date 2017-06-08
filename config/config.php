@@ -15,7 +15,7 @@ define('CONTROLLERPATH','controllers/');
 define('VIEWPATH','views/');
 define('LIBPATH','libs/');
  
-define('DEFAULTCONTROLLER', 'main');
+define('DEFAULTCONTROLLER', 'index');
  
 
 DEFINE('SESSION_SALT',  'SALT_FOR_SESSION');

@@ -36,7 +36,7 @@ class Login_Model extends Model {
 			$sth = $this -> db -> onlyExecute("UPDATE users SET sessionId=$sessionId WHERE 
 				username = :username AND password = :password",array(':username' => $userName, ':password' => $passw));
 		
-			header('location:' . BASEPATH . DEFAULTCONTROLLER);
+			header('location:' . BASEPATH . 'admin');
 
 		} else {
 			header('location:' . BASEPATH . 'login');
@@ -53,7 +53,7 @@ class Login_Model extends Model {
 				username = :username AND password = :password",array(':username' => $userName, ':password' => $passw));
 
 		$session->destroy();
-		header('location:' . BASEPATH);
+		header('location:' . BASEPATH. 'login');
 	}
 
 }
