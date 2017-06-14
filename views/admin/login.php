@@ -4,6 +4,7 @@
         <input type="hidden" name="token" value="<?php echo $token; ?>" />
         <label>Username</label><input type="text" name="username" class="form-control" />
         <label>Password</label><input type="password" name="password" class="form-control" />
+        <div>&nbsp;</div>
          <input type="submit" value="login" class="btn btn-primary" />
     </div>
 </form>
