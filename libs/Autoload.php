@@ -20,10 +20,9 @@ class Autoloader
 		if (file_exists($modelFile))
 		{
 			require($modelFile);
-		}elseif(file_exists($controllerFile))
-		{
+		}elseif(file_exists($controllerFile)) {
 			require($controllerFile);
-			}
+        }
 		elseif(file_exists($libFile)){
 			
 			require($libFile);

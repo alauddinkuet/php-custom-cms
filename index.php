@@ -5,9 +5,10 @@
  * 
  * */
 
+define('DOCUMENT_ROOT', dirname(__FILE__) . '/') ;
+
 require 'config/config.php';
 require 'libs/Autoload.php';
- 
 
 // handle request and dispatch it to the appropriate controller through bootstrap
 try{ 
