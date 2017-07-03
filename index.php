@@ -9,6 +9,7 @@ define('DOCUMENT_ROOT', dirname(__FILE__) . '/') ;
 
 require 'config/config.php';
 require 'libs/Autoload.php';
+require 'helpers/utility_helper.php';
 
 // handle request and dispatch it to the appropriate controller through bootstrap
 try{ 

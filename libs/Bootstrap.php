@@ -22,16 +22,23 @@ class Bootstrap {
 		}else{
 		    if($url[1]){
                 $this->loadFolderController($url);
+            }else{
+			    throw new Exception ("Method doesn't exist");
             }
-			throw new Exception ("Method doesn't exist");
 		}
 	}
 
 	function loadFolderController($url) {
         $class = $url[0] . '/'. $url[1];
+        $controllerName = $url[1];
         $controllerFile = CONTROLLERPATH . $class . '.php';
-        require($controllerFile);
-        $controller = new $url[1]();
+
+        if(file_exists($controllerFile))
+            require($controllerFile);
+        else
+            throw new Exception('File ' . $controllerFile . ' not found.');
+
+        $controller = new $controllerName();
         $method = empty($url[2]) ?  'index': $url[2];
         $args= empty($url[3]) ? NULL : $url[3];
         if(method_exists($controller, $method)){

@@ -3,7 +3,7 @@
  * main page model example
  *
  * */
-class Product_Model extends Model
+class Category_Model extends Model
 {
     public function __construct()
     {

@@ -7,7 +7,7 @@
 class Product extends Controller {
 
 	function __construct() {
-        parent::__construct('main_model');
+        parent::__construct();
 
         $this->session=new Session();
         //$this->session->start();
@@ -19,8 +19,8 @@ class Product extends Controller {
 
 	function index() {
 	    $this->loadModel('product_model', 'product');
-	    //$this->product->getProducts();
-		$this -> viewLoader -> tableData = $this -> model -> getData();
+        $this -> viewLoader -> tableData = $this->product->getProducts();
+        //$this -> viewLoader -> tableData = $this -> model -> getData();
 		$this -> viewLoader -> render('main');
 	}
 
