@@ -4,7 +4,7 @@ class Category extends Controller
 
     function __construct()
     {
-        parent::__construct();
+        parent::__construct('category_model');
 
         $this->session = new Session();
         //$this->session->start();
@@ -15,6 +15,11 @@ class Category extends Controller
     }
 
     function index()
+    {
+        $this -> viewLoader -> tableData = $this->model->getCategoryList();
+        $this -> viewLoader -> render('category');
+    }
+    function saveCategory()
     {
 
     }
