@@ -3,12 +3,12 @@
     <div class="menu_section">
         <h3>General</h3>
         <ul class="nav side-menu">
-            <li><a><i class="fa fa-home"></i> Product <span class="fa fa-chevron-down"></span></a>
+            <li><a><i class="fa fa-product-hunt"></i> Product <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu">
                     <li><a href="<?php echo BASEPATH . 'admin'?>">Manage Product</a></li>
                 </ul>
             </li>
-            <li><a><i class="fa fa-home"></i> Category <span class="fa fa-chevron-down"></span></a>
+            <li><a><i class="fa fa-list"></i> Category <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu">
                     <li><a href="index2.html">Manage Category</a></li>
                 </ul>
