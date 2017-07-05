@@ -7,3 +7,7 @@ function dumpvar($arr, $exit = false){
     if($exit)
         exit;
 }
+
+function redirect($url){
+    header('Location:' . BASEPATH . $url);
+}

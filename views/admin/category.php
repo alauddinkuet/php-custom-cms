@@ -1,17 +1,17 @@
 <div id="main">
-
-    <form action="/admin/category/saveCategory" method="post" >
+    <form action="<?php echo BASEPATH;?>admin/category/saveCategory" method="post" >
+        <input type="hidden" name="category_id" id="category_id" value="<?php echo isset($category['category_id']) ? $category['category_id'] : '';?>"/>
         <div class="form-group">
             <label for="category_title">Category Title</label>
-            <input type="text" class="form-control" id="category_title" name="category_title">
+            <input type="text" class="form-control" id="category_title" name="category_title" value="<?php echo isset($category['category_title']) ? $category['category_title'] : '';?>">
         </div>
         <div class="form-group">
             <label for="pwd">Parent  Category</label>
-            <select class="form-control">
+            <select class="form-control" name="parent_category_id" id="parent_category_id">
                 <option value="0"> Parent Category</option>
-                <?php foreach($this->tableData as $category) : ?>
-                    <?php if(!$category['parent_category_title']) : ?>
-                        <option value="<?php echo $category['category_id']?>"><?php echo $category['category_title']?></option>
+                <?php foreach($this->tableData as $item) : ?>
+                    <?php if(!$item['parent_category_title']) : ?>
+                        <option <?php echo isset($category['category_id']) && $category['parent_category_id'] == $item['category_id'] ? 'SELECTED' : '';?>  value="<?php echo $item['category_id']?>"><?php echo $item['category_title']?></option>
                     <?php endif;?>
                 <?php endforeach;?>
             </select>
@@ -45,7 +45,8 @@
 
             }
 
-            echo '<td class="text-center"> Edit </td><td class="text-center"> Delete </td>';
+            echo '<td class="text-center" style="width:20px;"> <a href="' . BASEPATH . 'admin/category/index/' . $row['category_id'] . '"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
+</a></td><td class="text-center" style="width:20px;"> <i class="fa fa-remove fa-2x" aria-hidden="true"></i> </td>';
             echo '</tr>';
 
         }

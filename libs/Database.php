@@ -22,7 +22,7 @@ class Database
 
 	}
 
-	function fetchSingle($sql, $bindData=null) {
+        function fetchSingle($sql, $bindData=null) {
 
 		$sth = $this -> db -> prepare($sql);
 
