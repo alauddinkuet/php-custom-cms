@@ -16,7 +16,7 @@
                 <?php endforeach;?>
             </select>
         </div>
-        <button type="submit" class="btn btn-default">Add Category</button>
+        <button type="submit" class="btn btn-default"><?php echo isset($category['category_id']) && $category['category_id'] ? 'Update' : 'Add';?> Category</button>
     </form>
     <hr />
     <table class="table">
@@ -28,6 +28,8 @@
 
             $keys = array_keys($this -> tableData[0]);
             foreach ($keys as $key => $val) {
+                if($val == 'parent_category_id')
+                    continue;
                 echo "<th id='$val'>" . ucwords(trim(str_replace('_', ' ', $val))) . "</th>";
             }
             ?>
@@ -40,13 +42,17 @@
             echo '<tr id="' . $row['category_id'] . '">';
 
             foreach ($row as $key => $val) {
-
+                if($key == 'parent_category_id')
+                    continue;
                 echo '<td><span>' . $val . '</span></td>';
-
             }
 
-            echo '<td class="text-center" style="width:20px;"> <a href="' . BASEPATH . 'admin/category/index/' . $row['category_id'] . '"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
-</a></td><td class="text-center" style="width:20px;"> <i class="fa fa-remove fa-2x" aria-hidden="true"></i> </td>';
+            echo '<td class="text-center" style="width:20px;"> 
+                        <a href="' . BASEPATH . 'admin/category/index/' . $row['category_id'] . '"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></a>
+                  </td>
+                  <td class="text-center" style="width:20px;"> 
+                    <a onclick="javascript:return confirm(\'Are you sure you want to delete the category?\')" href="' . BASEPATH . 'admin/category/index/' . $row['category_id'] . '"><i class="fa fa-remove fa-2x" aria-hidden="true"></i> </a>
+                  </td>';
             echo '</tr>';
 
         }

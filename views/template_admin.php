@@ -35,7 +35,7 @@
                     </div>
                     <div class="profile_info">
                         <span>Welcome,</span>
-                        <h2><?php echo $_SESSION['username']?></h2>
+                        <h2><?php echo isset($_SESSION['username']) ?$_SESSION['username'] : ''; ?></h2>
                     </div>
                 </div>
                 <!-- /menu profile quick info -->
@@ -69,11 +69,11 @@
                     <div class="nav toggle">
                         <a id="menu_toggle"><i class="fa fa-bars"></i></a>
                     </div>
-
+                    <?php if(isset($_SESSION['username'])) : ?>
                     <ul class="nav navbar-nav navbar-right">
                         <li class="">
                             <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                <img src="images/img.jpg" alt=""><?php echo $_SESSION['username']?>
+                                <img src="images/img.jpg" alt=""><?php echo isset($_SESSION['username']) ?$_SESSION['username'] : ''; ?>
                                 <span class=" fa fa-angle-down"></span>
                             </a>
                             <ul class="dropdown-menu dropdown-usermenu pull-right">
@@ -154,6 +154,7 @@
                             </ul>
                         </li>
                     </ul>
+                    <?php endif;?>
                 </nav>
             </div>
         </div>
