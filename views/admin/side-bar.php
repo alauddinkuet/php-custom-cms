@@ -10,7 +10,7 @@
             </li>
             <li><a><i class="fa fa-list"></i> Category <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu">
-                    <li><a href="index2.html">Manage Category</a></li>
+                    <li><a href="<?php echo BASEPATH . 'admin/category'?>">Manage Category</a></li>
                 </ul>
             </li>
             <!--li><a><i class="fa fa-edit"></i> Forms <span class="fa fa-chevron-down"></span></a>
