@@ -5,8 +5,13 @@ $(document).ready(function () {
         dataType: 'json',
         onSuccess : function (e, data) {
             $('#image-list').html(data.image_list);
+            setPrimaryClickEvent();
         }
     });
+    setPrimaryClickEvent();
+});
+
+function setPrimaryClickEvent(){
     $('.is_primary').on('click', function(){
         is_primary = $(this).prop('checked') ? 1 : 0;
         if(is_primary){
@@ -17,4 +22,4 @@ $(document).ready(function () {
             url: $('#basepath').val() + "admin/product/imagePrimary/" + $(this).attr('data-id') + '/' + is_primary 
         });
     });
-});
+}
