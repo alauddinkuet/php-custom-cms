@@ -5,10 +5,11 @@
         <ul class="nav side-menu">
             <li><a><i class="fa fa-product-hunt"></i> Product <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu">
-                    <li><a href="<?php echo BASEPATH . 'admin'?>">Manage Product</a></li>
+                    <li><a href="<?php echo BASEPATH . 'admin/product'?>">Manage Product</a></li>
+                    <li><a href="<?php echo BASEPATH . 'admin/product/form'?>">Add Product</a></li>
                 </ul>
             </li>
-            <li><a><i class="fa fa-list"></i> Category <span class="fa fa-chevron-down"></span></a>
+            <li <?php echo strpos($_SERVER['REQUEST_URI'], 'category') !== false ? 'class="active"' : '';?>><a><i class="fa fa-list"></i> Category <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu">
                     <li><a href="<?php echo BASEPATH . 'admin/category'?>">Manage Category</a></li>
                 </ul>

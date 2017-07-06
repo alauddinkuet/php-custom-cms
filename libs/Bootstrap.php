@@ -14,11 +14,14 @@ class Bootstrap {
 		$controllerName=empty($url[0])?DEFAULTCONTROLLER:$url[0];
 
         $method = empty($url[1]) ?  'index': $url[1];
-        $args= empty($url[2]) ? NULL : $url[2];
+        //$args= empty($url[2]) ? NULL : $url[2];
 		// calling methods
 		$controller = new $controllerName();
 		if(method_exists($controller, $method)){
-       		 $controller->$method($args);
+       		//$controller->$method($args);
+            unset($url[0]);
+            unset($url[1]);
+            call_user_func_array(array($controller, $method), $url);
 		}else{
 		    if($url[1]){
                 $this->loadFolderController($url);
@@ -40,9 +43,13 @@ class Bootstrap {
 
         $controller = new $controllerName();
         $method = empty($url[2]) ?  'index': $url[2];
-        $args= empty($url[3]) ? NULL : $url[3];
+        //$args= empty($url[3]) ? NULL : $url[3];
         if(method_exists($controller, $method)){
-            $controller->$method($args);
+            //$controller->$method($args);
+            unset($url[0]);
+            unset($url[1]);
+            unset($url[2]);
+            call_user_func_array(array($controller, $method), $url);
         }else{
             throw new Exception ("Method doesn't exist");
         }

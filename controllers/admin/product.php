@@ -7,7 +7,7 @@
 class Product extends Controller {
 
 	function __construct() {
-        parent::__construct();
+        parent::__construct('product_model');
 
         $this->session=new Session();
         //$this->session->start();
@@ -18,22 +18,36 @@ class Product extends Controller {
 	}
 
 	function index() {
-	    $this->loadModel('product_model', 'product');
-        $this -> viewLoader -> tableData = $this->product->getProducts();
-        //$this -> viewLoader -> tableData = $this -> model -> getData();
-		$this -> viewLoader -> render('main');
+        $this->loadModel('category_model', 'category');
+        $this -> viewLoader -> tableData = $this->model->getProducts();
+        $this -> viewLoader -> category = $this->category->getCategoryList();
+
+		$this -> viewLoader -> render('product/list');
 	}
 
-	function insertRow() {
-		$this -> model -> insertRow(filter_var($_POST['text'],FILTER_SANITIZE_STRING));
+    function form($product_id =null) {
+        $this->loadModel('category_model', 'category');
+        if($product_id){
+            $this -> viewLoader -> product = $this->model->getProductById($product_id);
+        }
+        $this -> viewLoader -> category = $this->category->getCategoryList();
+
+        $this -> viewLoader -> render('product/form');
+    }
+
+    function image($product_id){
+
+    }
+
+	function save() {
+        $this->model->saveProduct();
+        message('Product Saved Successfully.');
+        redirect('admin/product');
 	}
 
-	function update($id) {
-		$data = array('field' => filter_var($_POST['field'],FILTER_SANITIZE_STRING), 'value' => filter_var($_POST['value'],FILTER_SANITIZE_STRING));
-		$this -> model -> updateSingleData($id, $data);
-	}
-
-	function delete($id) {
-		$this -> model -> deleteRow($id);
-	}
+    function delete($product_id){
+        $this->model->deleteProductById($product_id);
+        message('Product Deleted Successfully.');
+        redirect('admin/product');
+    }
 }

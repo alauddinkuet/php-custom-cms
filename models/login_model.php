@@ -9,7 +9,6 @@
 class Login_Model extends Model {
 	public function __construct() {
 		parent::__construct();
-		
 	}
 
 	public function login(Session $session) {
@@ -23,7 +22,7 @@ class Login_Model extends Model {
 		 
 		$passw = hash('sha256', $passw);
 
-		$user = $this -> db -> fetchSingle("SELECT id, level FROM users WHERE 
+		$user = $this -> db -> fetchSingle("SELECT id, level FROM tbl_users WHERE 
 				username = :username AND password = :password", array(':username' => $userName, ':password' => $passw));
 		 
 		if ( !empty($user) ) {
@@ -33,13 +32,13 @@ class Login_Model extends Model {
 			$session->set('level', $user['level']);
 			$session->set('loggedIn', true);
 			$sessionId = session_id();
-			$sth = $this -> db -> onlyExecute("UPDATE users SET sessionId=$sessionId WHERE 
+			$sth = $this -> db -> onlyExecute("UPDATE tbl_users SET sessionId=$sessionId WHERE 
 				username = :username AND password = :password",array(':username' => $userName, ':password' => $passw));
 		
-			header('location:' . BASEPATH . 'admin');
+			redirect('admin/product');
 
 		} else {
-			header('location:' . BASEPATH . 'login');
+            redirect('login');
 		}
 
 	}
@@ -49,9 +48,8 @@ class Login_Model extends Model {
 		$session->set('loggedIn', false);
 		$session->set('user', null);
 		$session->set('level', null);
-		$sth = $this -> db -> onlyExecute("UPDATE users SET sessionId='' WHERE 
+		$sth = $this -> db -> onlyExecute("UPDATE tbl_users SET sessionId='' WHERE 
 				username = :username AND password = :password",array(':username' => $userName, ':password' => $passw));
-
 		$session->destroy();
 		header('location:' . BASEPATH. 'login');
 	}

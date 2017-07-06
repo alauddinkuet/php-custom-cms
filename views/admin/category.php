@@ -1,9 +1,9 @@
 <div id="main">
-    <form action="<?php echo BASEPATH;?>admin/category/saveCategory" method="post" >
+    <form action="<?php echo BASEPATH;?>admin/category/save" method="post" >
         <input type="hidden" name="category_id" id="category_id" value="<?php echo isset($category['category_id']) ? $category['category_id'] : '';?>"/>
         <div class="form-group">
             <label for="category_title">Category Title</label>
-            <input type="text" class="form-control" id="category_title" name="category_title" value="<?php echo isset($category['category_title']) ? $category['category_title'] : '';?>">
+            <input type="text" required="required" class="form-control" id="category_title" name="category_title" value="<?php echo isset($category['category_title']) ? $category['category_title'] : '';?>">
         </div>
         <div class="form-group">
             <label for="pwd">Parent  Category</label>
@@ -19,7 +19,7 @@
         <button type="submit" class="btn btn-default"><?php echo isset($category['category_id']) && $category['category_id'] ? 'Update' : 'Add';?> Category</button>
     </form>
     <hr />
-    <table class="table">
+    <table class="table table-hover">
         <thead class="thead-default">
         <tr>
             <?php
@@ -51,7 +51,7 @@
                         <a href="' . BASEPATH . 'admin/category/index/' . $row['category_id'] . '"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></a>
                   </td>
                   <td class="text-center" style="width:20px;"> 
-                    <a onclick="javascript:return confirm(\'Are you sure you want to delete the category?\')" href="' . BASEPATH . 'admin/category/index/' . $row['category_id'] . '"><i class="fa fa-remove fa-2x" aria-hidden="true"></i> </a>
+                    <a onclick="javascript:return confirm(\'Are you sure you want to delete the category?\')" href="' . BASEPATH . 'admin/category/delete/' . $row['category_id'] . '"><i class="fa fa-remove fa-2x" aria-hidden="true"></i> </a>
                   </td>';
             echo '</tr>';
 
