@@ -3,7 +3,6 @@ class Category extends Controller
 {
     function __construct(){
         parent::__construct('category_model');
-
         $this->session = new Session();
         //$this->session->start();
 
