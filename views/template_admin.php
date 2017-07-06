@@ -18,6 +18,7 @@
 </head>
 
 <body class="nav-md">
+<input type="hidden" name="basepath" id="basepath" value="<?php echo BASEPATH;?>"/>
 <div class="container body">
     <div class="main_container">
         <div class="col-md-3 left_col">
@@ -185,6 +186,9 @@
 <script src="<?php echo BASEPATH; ?>public/bootstrap/js/bootstrap.min.js"></script>
 <!-- Custom Theme Scripts -->
 <script src="<?php echo BASEPATH; ?>public/theme/js/custom.js" ></script>
+<link href="https://rawgithub.com/hayageek/jquery-upload-file/master/css/uploadfile.css" rel="stylesheet">
+<script src="<?php echo BASEPATH; ?>public/js/jquery.uploadfile.js" ></script>
+<script src="<?php echo BASEPATH; ?>public/js/scripts.js" ></script>
 
 
 </body>

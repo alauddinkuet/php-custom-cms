@@ -22,13 +22,15 @@ class Product_Model extends Model
         $sth = $this -> db -> fetchAllAssoc($sql);
         return $sth;
     }
+
     function saveProduct(){
-        $data['product_id'] = isset($_POST['product_id']) ? filter_var($_POST['product_id'],FILTER_SANITIZE_STRING) : 0;
+        $data['product_id']       = isset($_POST['product_id']) ? filter_var($_POST['product_id'],FILTER_SANITIZE_STRING) : 0;
         $data['product_name']     = filter_var($_POST['product_name'],FILTER_SANITIZE_STRING);
         $data['product_name_seo'] = getSEOTitle($data['product_name']);
-        $data['category_id'] = filter_var($_POST['category_id'],FILTER_SANITIZE_STRING);
-        $data['product_price'] = filter_var($_POST['product_price'],FILTER_SANITIZE_STRING);
+        $data['category_id']      = filter_var($_POST['category_id'],FILTER_SANITIZE_STRING);
+        $data['product_price']    = filter_var($_POST['product_price'],FILTER_SANITIZE_STRING);
         $data['product_description'] = filter_var($_POST['product_description'],FILTER_SANITIZE_STRING);
+
         if(!$data['product_id']){
             unset($data['product_id']);
             $data['created_on'] = date('Y-m-d H:i:s');
@@ -47,14 +49,35 @@ class Product_Model extends Model
     }
 
     function getProductById($id){
-
         $sql = "SELECT *FROM tbl_product WHERE product_id = :product_id";
         return $this->db->fetchSingle($sql, array(':product_id' => $id));
+    }
+
+    function getProductImages($id){
+        $sql = "SELECT *FROM tbl_product_image WHERE product_id = :product_id";
+        return $this->db->fetchAllAssoc($sql, array(':product_id' => $id));
     }
 
     function deleteProductById($id){
 
         $sql = "DELETE FROM tbl_product WHERE product_id = :product_id";
         return $this->db->fetchSingle($sql, array(':product_id' => $id));
+    }
+    function deleteImage($id){
+        $image = $this->getImageById($id);
+        @unlink(DOCUMENT_ROOT. 'product_image/'. $image['file_name']);
+        $sql = "DELETE FROM tbl_product_image WHERE id = :id";
+        return $this->db->onlyExecute($sql, array(':id' => $id));
+    }
+
+    function getImageById($id){
+        $sql = "SELECT *FROM tbl_product_image WHERE id = :id";
+        return $this->db->fetchSingle($sql, array(':id' => $id));
+    }
+
+    function saveImage($data){
+        $sql = "INSERT INTO tbl_product_image(product_id, file_name, file_org_name, created_on) 
+                                    values(:product_id,:file_name,:file_org_name,:created_on)";
+        return $this->db->insertRow($sql, $data);
     }
 }
