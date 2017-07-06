@@ -3,3 +3,4 @@
 .idea/
 php_errors.log
 config/config.php
+product_image/*
