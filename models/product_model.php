@@ -80,4 +80,13 @@ class Product_Model extends Model
                                     values(:product_id,:file_name,:file_org_name,:created_on)";
         return $this->db->insertRow($sql, $data);
     }
+    
+    function updateImage(Session $session, $id, $is_primary){
+        if($is_primary){
+            $sql = "UPDATE tbl_product_image SET is_primary = 0 WHERE product_id = ?";
+            $this->db->onlyExecute($sql, array($session->get('product_id')));
+        }
+        $sql = "UPDATE tbl_product_image SET is_primary = ? WHERE id = ?";
+        $result = $this->db->onlyExecute($sql, array($is_primary, $id));
+    }
 }

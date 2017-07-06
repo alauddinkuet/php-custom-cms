@@ -3,7 +3,7 @@
     <tr>
         <th>Image</th>
         <th>Image Title</th>
-        <th>Is Primary</th>
+        <th class="text-center">Is Primary</th>
         <th>Action</th>
     </tr>
     </thead>
@@ -12,7 +12,10 @@
         <tr>
             <td><img style="width: 50px" src="<?php echo BASEPATH;?>product_image/<?php echo $item['file_name']?>"></td>
             <td><?php echo $item['file_org_name'];?></td>
-            <td><?php echo $item['is_primary'] ? 'Yes' : 'no';?></td>
+            <td class="text-center">
+            <input type="checkbox" data-id="<?php echo $item['id'];?>" class="is_primary" name="is_primary_<?php echo $item['id'];?>" id="is_primary_<?php echo $item['id'];?>" <?php echo $item['is_primary'] ? 'checked' : '';?>> 
+                
+            </td>
             <td>
                 <a onclick="javascript:return confirm('Are you sure you want to delete the image?')"
                    href="<?php echo BASEPATH . 'admin/product/deleteImage/' . $item['id'] ?>">

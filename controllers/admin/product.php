@@ -9,7 +9,7 @@ class Product extends Controller {
 	function __construct() {
         parent::__construct('product_model');
 
-        $this->session=new Session();
+        $this->session = new Session();
         //$this->session->start();
 
 		if (!$this->session->get('loggedIn') || !($this->session->get('username'))) {
@@ -105,5 +105,9 @@ class Product extends Controller {
         $this->model->deleteImage($id);
         message('Image Deleted Successfully.');
         redirect('admin/product/image/' . $this->session->get('product_id'));
+    }
+    
+    function imagePrimary($id, $is_primary){
+       $this->model->updateImage($this->session, $id, $is_primary); 
     }
 }
