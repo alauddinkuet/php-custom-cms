@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 06, 2017 at 12:41 PM
+-- Generation Time: Jul 06, 2017 at 03:31 অপরাহ্ণ
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.20
 
@@ -172,7 +172,7 @@ ALTER TABLE `tbl_product`
 -- AUTO_INCREMENT for table `tbl_product_image`
 --
 ALTER TABLE `tbl_product_image`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 --
 -- AUTO_INCREMENT for table `tbl_users`
 --
