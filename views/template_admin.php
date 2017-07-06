@@ -186,10 +186,7 @@
 <script src="<?php echo BASEPATH; ?>public/bootstrap/js/bootstrap.min.js"></script>
 <!-- Custom Theme Scripts -->
 <script src="<?php echo BASEPATH; ?>public/theme/js/custom.js" ></script>
-<link href="https://rawgithub.com/hayageek/jquery-upload-file/master/css/uploadfile.css" rel="stylesheet">
 <script src="<?php echo BASEPATH; ?>public/js/jquery.uploadfile.js" ></script>
 <script src="<?php echo BASEPATH; ?>public/js/scripts.js" ></script>
-
-
 </body>
 </html>
