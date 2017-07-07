@@ -44,7 +44,7 @@ class LoadView {
             extract($this->properties);
         }
         ob_start();
-        include VIEWPATH . '/admin/' .$name . '.php';
+        include VIEWPATH . '/' .$name . '.php';
         $content = ob_get_contents();
         ob_end_clean();
 
