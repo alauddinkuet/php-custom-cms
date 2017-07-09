@@ -14,14 +14,11 @@ class Admin extends Controller {
 			
 		if (!$this->session->get('loggedIn') || !($this->session->get('username'))) {
 			header('location:' . BASEPATH . 'login');
-		} 
+		}
 	}
 
 	function index() {
-	    $this->loadModel('product_model', 'product');
-	    //$this->product->getProducts();
-		$this -> viewLoader -> tableData = $this -> model -> getData();
-		$this -> viewLoader -> render('main');
+        header('location:' . BASEPATH . 'admin/product');
 	}
 
 	function insertRow() {

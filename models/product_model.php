@@ -23,7 +23,7 @@ class Product_Model extends Model
                        category_title, 
                        product_price,
                        featured,
-                       product_description,
+                       SUBSTR(product_description,1, 100) AS product_description,
                        DATE_FORMAT(created_on, '%Y-%c-%d') as created_on
                        FROM tbl_product AS p LEFT JOIN 
                        tbl_category AS c ON(p.category_id = c.category_id) LEFT JOIN 
