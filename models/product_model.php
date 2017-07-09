@@ -37,12 +37,14 @@ class Product_Model extends Model
     function saveProduct(){
         $data['product_id']       = isset($_POST['product_id']) ? filter_var($_POST['product_id'],FILTER_SANITIZE_STRING) : 0;
         $data['product_name']     = filter_var($_POST['product_name'],FILTER_SANITIZE_STRING);
-        $data['product_name_seo'] = getSEOTitle($data['product_name']);
+        $data['product_name_seo'] = getSEOTitle($data['product_name'], $data['product_id']);
+        if($this->checkDuplicateName($data['product_name_seo'], $data['product_id'])){
+            $data['product_name_seo'] = $data['product_name_seo'] . '_' . date('Y-m-d');
+        }
         $data['category_id']      = filter_var($_POST['category_id'],FILTER_SANITIZE_STRING);
         $data['product_price']    = filter_var($_POST['product_price'],FILTER_SANITIZE_STRING);
         $data['product_description'] = filter_var($_POST['product_description'],FILTER_SANITIZE_STRING);
         $data['product_details'] = filter_var($_POST['product_details']);
-
         if(!$data['product_id']){
             unset($data['product_id']);
             $data['created_on'] = date('Y-m-d H:i:s');
@@ -54,8 +56,8 @@ class Product_Model extends Model
             $this->db->onlyExecute($sql, array($product_code, $data['product_id']));
         }
         else{
-            $sql = "UPDATE tbl_product SET product_name = ?, category_id = ?, product_price = ?, product_description = ?, product_details = ? WHERE product_id = ?";
-            $this -> db -> onlyExecute($sql, array($data['product_name'], $data['category_id'], $data['product_price'], $data['product_description'], $data['product_details'], $data['product_id']));
+            $sql = "UPDATE tbl_product SET product_name = ?, product_name_seo = ?, category_id = ?, product_price = ?, product_description = ?, product_details = ? WHERE product_id = ?";
+            $this -> db -> onlyExecute($sql, array($data['product_name'], $data['product_name_seo'], $data['category_id'], $data['product_price'], $data['product_description'], $data['product_details'], $data['product_id']));
         }
         return $data['product_id'];
     }
@@ -106,6 +108,16 @@ class Product_Model extends Model
     }
     function getProductBySeoName($name){
         $sql = "SELECT *FROM tbl_product WHERE product_name_seo = :product_name_seo";
+        return $this->db->fetchSingle($sql, array(':product_name_seo' => $name));
+    }
+
+    function checkDuplicateName($name, $product_id = 0){
+        $where = '';
+        if($product_id){
+            $where = " AND product_id != {$product_id}";
+        }
+        $sql = "SELECT *FROM tbl_product WHERE product_name_seo = :product_name_seo {$where}";
+        //die($name);
         return $this->db->fetchSingle($sql, array(':product_name_seo' => $name));
     }
 

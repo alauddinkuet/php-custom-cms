@@ -2,7 +2,7 @@
     <thead class="thead-default">
     <tr>
         <?php
-        $ignore = array('product_id', 'featured', 'review_count', 'rating');
+        $ignore = array('product_id', 'featured', 'review_count', 'rating', 'product_description');
         /** Build headers */
         $keys = array_keys($this -> tableData[0]);
         foreach ($keys as $key => $val) {
@@ -20,6 +20,8 @@
         foreach ($row as $key => $val) {
             if(in_array($key, $ignore))
                 continue;
+            if($key == 'product_price')
+                $val = 'BDT ' . $val;
             echo '<td><span>' . $val . '</span></td>';
         }
         echo '<td class="text-center" style="width:20px;"> 
