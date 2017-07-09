@@ -10,7 +10,7 @@
     <tbody>
     <?php foreach($images as $item) : ?>
         <tr>
-            <td><img style="width: 50px" src="<?php echo BASEPATH;?>product_image/<?php echo $item['file_name']?>"></td>
+            <td><img style="width: 50px" src="<?php echo PRODUCT_IMAGE_URL . $item['file_name']?>"></td>
             <td><?php echo $item['file_org_name'];?></td>
             <td class="text-center">
             <input type="checkbox" data-id="<?php echo $item['id'];?>" class="is_primary" name="is_primary_<?php echo $item['id'];?>" id="is_primary_<?php echo $item['id'];?>" <?php echo $item['is_primary'] ? 'checked' : '';?>> 

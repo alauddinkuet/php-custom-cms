@@ -22,12 +22,16 @@
         <textarea class="form-control" id="product_description" name="product_description"><?php echo isset($product['product_description']) ? $product['product_description'] : '';?></textarea>
     </div>
 
+    <div class="form-group">
+        <label for="category_title">Product Details</label>
+        <textarea class="form-control" id="product_details" name="product_details"><?php echo isset($product['product_details']) ? $product['product_details'] : '';?></textarea>
+    </div>
     <button type="submit" class="btn btn-default"><?php echo isset($product['product_id']) && $product['product_id'] ? 'Update' : 'Add';?> Product</button>
 </form>
 
 <script src="//cdn.ckeditor.com/4.7.1/full/ckeditor.js"></script>
 <script>
-    CKEDITOR.replace( 'product_description', {
+    CKEDITOR.replace( 'product_details', {
         // Define the toolbar groups as it is a more accessible solution.
         toolbarGroups: [
             {"name":"basicstyles","groups":["basicstyles"]},

@@ -42,7 +42,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Start Bootstrap</a>
+                <a class="navbar-brand" href="#">Home</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -65,21 +65,49 @@
 
     <!-- Page Content -->
     <div class="container">
-
         <div class="row">
-
             <div class="col-md-3">
-                <p class="lead">Shop Name</p>
-                <div class="list-group">
-                    <a href="#" class="list-group-item">Category 1</a>
-                    <a href="#" class="list-group-item">Category 2</a>
-                    <a href="#" class="list-group-item">Category 3</a>
+                <p class="lead">Smart Electronics</p>
+                <!-- menu -->
+                <div id="MainMenu">
+                    <div class="list-group panel">
+                        <?php foreach ($categories as $key => $category) : ?>
+                        <a href="#submenu-<?php echo $key?>" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu"><?php echo $category[0]['parent_category_title']?> <i class="fa fa-caret-down"></i></a>
+                        <div class="collapse" id="submenu-<?php echo $key?>">
+                            <?php foreach ($category as $item) : ?>
+                                <a href="<?php echo BASEPATH?>product/items/<?php echo $item['category_id'] ?>" class="list-group-item"><?php echo $item['category_title']?></a>
+                            <?php endforeach;?>
+                        </div>
+                        <?php endforeach;?>
+                    </div>
                 </div>
+
+
+                <!--div class="panel-group">
+                    <?php foreach ($categories as $key => $category) : ?>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" href="#collapse<?php echo $key?>"><?php echo $category[0]['parent_category_title']?></a>
+                            </h4>
+                        </div>
+                        <div id="collapse<?php echo $key?>" class="panel-collapse collapse">
+                        <?php foreach ($category as $item) : ?>
+                            <div class="panel-body">
+                                <a hre="<?php echo BASEPATH?>"><?php echo $item['category_title']?></a>
+                            </div>
+                        <?php endforeach;?>
+                        </div>
+                    </div>
+                    <?php endforeach;?>
+                </div-->
+
+
             </div>
 
             <div class="col-md-9">
-            <?php echo $content;?>
-
+                <?php require VIEWPATH . 'includes/message.php';?>
+                <?php echo $content;?>
             </div>
 
         </div>
@@ -95,7 +123,7 @@
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    <p>Copyright &copy; Your Website <?php echo date('Y');?></p>
+                    <p>Copyright &copy; Smart Electronics <?php echo date('Y');?></p>
                 </div>
             </div>
         </footer>

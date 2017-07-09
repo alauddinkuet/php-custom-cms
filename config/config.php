@@ -17,6 +17,8 @@ define('VIEWPATH','views/');
 define('LIBPATH','libs/');
  
 define('DEFAULTCONTROLLER', 'index');
- 
+define('PRODUCT_IMAGE_URL', BASEPATH . 'product_image/');
+define('PRODUCT_IMAGE_PATH', DOCUMENT_ROOT . 'product_image/');
+
 
 DEFINE('SESSION_SALT',  'SALT_FOR_SESSION');

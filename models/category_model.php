@@ -13,7 +13,7 @@ class Category_Model extends Model
     function getCategoryList(){
         $sql = "SELECT c.category_id, c.parent_category_id, c.category_title, p.category_title AS parent_category_title 
                        FROM tbl_category c LEFT JOIN tbl_category p 
-                       ON c.parent_category_id = p.category_id";
+                       ON c.parent_category_id = p.category_id ORDER BY parent_category_title, c.category_title";
         $result = $this -> db -> fetchAllAssoc($sql);
         return $result;
     }

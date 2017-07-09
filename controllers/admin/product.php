@@ -45,13 +45,13 @@ class Product extends Controller {
         $this->viewLoader->product = $this->model->getProductById($product_id);
         $this -> viewLoader -> render('product/image_form');
     }
-    function get_image_list(){
+    function getImageList(){
         $this->viewLoader->images  = $this->model->getProductImages($this->session->get('product_id'));
         return $this -> viewLoader -> render('product/image_list', array(),true);
     }
     function upload_image(){
         header('Content-Type: application/json');
-        $output_dir = DOCUMENT_ROOT . "product_image/";
+        $output_dir = PRODUCT_IMAGE_PATH;
         if(isset($_FILES["myfile"]))
         {
             $ret = array();
@@ -85,7 +85,7 @@ class Product extends Controller {
             $data['product_id'] = $this->session->get('product_id');
             $data['created_on'] = date('Y-m-d H:i:s');
             $this->model->saveImage($data);
-            $ret['image_list'] = $this->get_image_list();
+            $ret['image_list'] = $this->getImageList();
             echo json_encode($ret);
         }
     }
