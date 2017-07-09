@@ -2,10 +2,11 @@
     <thead class="thead-default">
     <tr>
         <?php
+        $ignore = array('product_id', 'featured', 'review_count', 'rating');
         /** Build headers */
         $keys = array_keys($this -> tableData[0]);
         foreach ($keys as $key => $val) {
-            if($val == 'product_id')
+            if(in_array($val, $ignore))
                 continue;
             echo "<th id='$val'>" . ucwords(trim(str_replace('_', ' ', $val))) . "</th>";
         }
@@ -17,7 +18,7 @@
     foreach ($this->tableData as $key => $row) {
         echo '<tr id="' . $row['product_id'] . '">';
         foreach ($row as $key => $val) {
-            if($key == 'product_id')
+            if(in_array($key, $ignore))
                 continue;
             echo '<td><span>' . $val . '</span></td>';
         }

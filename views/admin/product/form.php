@@ -6,7 +6,7 @@
     </div>
     <div class="form-group">
         <label for="product_price">Product Price</label>
-        <input required="required" min="0" max="99999" type="number" step="any" class="form-control" id="product_price" name="product_price" value="<?php echo isset($product['product_price']) ? $product['product_price'] : '';?>">
+        <input required="required" min="0" max="999999" type="number" step="any" class="form-control" id="product_price" name="product_price" value="<?php echo isset($product['product_price']) ? $product['product_price'] : '';?>">
     </div>
     <div class="form-group">
         <label for="category_id">Product Category</label>

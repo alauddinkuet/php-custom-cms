@@ -41,7 +41,7 @@ class Product_Model extends Model
         $data['category_id']      = filter_var($_POST['category_id'],FILTER_SANITIZE_STRING);
         $data['product_price']    = filter_var($_POST['product_price'],FILTER_SANITIZE_STRING);
         $data['product_description'] = filter_var($_POST['product_description'],FILTER_SANITIZE_STRING);
-        $data['product_details'] = filter_var($_POST['product_details'],FILTER_SANITIZE_STRING);
+        $data['product_details'] = filter_var($_POST['product_details']);
 
         if(!$data['product_id']){
             unset($data['product_id']);
