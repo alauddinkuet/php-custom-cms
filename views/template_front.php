@@ -1,37 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="<?php echo isset($meta_description) && $meta_description ? $meta_description : 'Electronics Good Home Appliance' ;?>">
     <meta name="keywords" content="<?php echo isset($meta_keywords) && $meta_keywords ? $meta_keywords : 'Electronics Good Home Appliance' ;?>"  />
     <meta name="author" content="">
-
     <title>Smart Electronics - <?php echo isset($product['product_name']) ? $product['product_name'] : 'Product Collection'?></title>
-
-    
     <!-- Bootstrap -->
     <link rel="stylesheet" href="<?php echo BASEPATH; ?>public/bootstrap/css/bootstrap.min.css" />
     <!-- Font Awesome -->
     <link rel="stylesheet" href="<?php echo BASEPATH; ?>public/font-awesome/css/font-awesome.min.css" />
-
     <link rel="stylesheet" href="<?php echo BASEPATH; ?>public/css/styles_front.css" />
-    
-
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
 </head>
-
 <body>
-
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
@@ -62,8 +51,7 @@
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container -->
-    </nav>
-
+    </nav> 
     <!-- Page Content -->
     <div class="container">
         <div class="row">
@@ -81,9 +69,7 @@
                         </div>
                         <?php endforeach;?>
                     </div>
-                </div>
-
-
+                </div> 
                 <!--div class="panel-group">
                     <?php foreach ($categories as $key => $category) : ?>
                     <div class="panel panel-default">
@@ -102,24 +88,16 @@
                     </div>
                     <?php endforeach;?>
                 </div-->
-
-
             </div>
-
             <div class="col-md-9">
                 <?php require VIEWPATH . 'includes/message.php';?>
                 <?php echo $content;?>
             </div>
-
         </div>
-
     </div>
     <!-- /.container -->
-
     <div class="container">
-
         <hr>
-
         <!-- Footer -->
         <footer>
             <div class="row">
@@ -128,15 +106,11 @@
                 </div>
             </div>
         </footer>
-
     </div>
-    <!-- /.container -->
-
+    <!-- container -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" ></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
     <!-- Bootstrap -->
     <script src="<?php echo BASEPATH; ?>public/bootstrap/js/bootstrap.min.js"></script>
-
 </body>
-
 </html>
