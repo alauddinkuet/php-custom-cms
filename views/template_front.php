@@ -6,10 +6,11 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
+    <meta name="description" content="<?php echo isset($meta_description) && $meta_description ? $meta_description : 'Electronics Good Home Appliance' ;?>">
+    <meta name="keywords" content="<?php echo isset($meta_keywords) && $meta_keywords ? $meta_keywords : 'Electronics Good Home Appliance' ;?>"  />
     <meta name="author" content="">
 
-    <title>Shop Homepage - Start Bootstrap Template</title>
+    <title>Smart Electronics - <?php echo isset($product['product_name']) ? $product['product_name'] : 'Product Collection'?></title>
 
     
     <!-- Bootstrap -->

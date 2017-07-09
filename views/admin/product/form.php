@@ -26,6 +26,15 @@
         <label for="category_title">Product Details</label>
         <textarea class="form-control" id="product_details" name="product_details"><?php echo isset($product['product_details']) ? $product['product_details'] : '';?></textarea>
     </div>
+    <div class="form-group">
+        <label for="meta_keywords">Meta Keywords</label>
+        <input type="text" class="form-control" id="meta_keywords" name="meta_keywords" value="<?php echo isset($product['meta_keywords']) ? $product['meta_keywords'] : '';?>">
+    </div>
+    
+    <div class="form-group">
+        <label for="meta_description">Meta description</label>
+        <textarea class="form-control" id="meta_description" name="meta_description"><?php echo isset($product['meta_description']) ? $product['meta_description'] : '';?></textarea>
+    </div>
     <button type="submit" class="btn btn-default"><?php echo isset($product['product_id']) && $product['product_id'] ? 'Update' : 'Add';?> Product</button>
 </form>
 

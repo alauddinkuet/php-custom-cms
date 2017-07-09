@@ -34,7 +34,7 @@
                             <img src="http://placehold.it/320x150" alt="">
                             <?php endif;?>
                             <div class="caption">
-                                <h4 class="pull-right price">BDT <?php echo $item['product_price']?></h4>
+                                <h4 class="pull-right price">৳ <?php echo $item['product_price']?></h4>
                                 <h4><a href="<?php echo BASEPATH . 'product/details/' . $item['product_name_seo'];?>"><?php echo $item['product_name'];?></a>
                                 </h4>
                                 <p><?php echo $item['product_description']?></p>

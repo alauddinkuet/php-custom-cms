@@ -50,7 +50,6 @@
     </div>
 </div>
 
-
 <div class="detailBox">
     <div class="titleBox">
         <label>Current Reviews</label>
@@ -88,7 +87,9 @@
     </div>
 </div>
 
+<div>&nbsp;</div>
 <h2>Add Review</h2>
+<hr />
 <form class="form-horizontal" action="<?php echo BASEPATH?>product/review" method="post">
     <input type="hidden" name="product_id" id="product_id" value="<?php echo $product['product_id']?>" />
     <div class="form-group">

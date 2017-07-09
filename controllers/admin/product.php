@@ -28,7 +28,7 @@ class Product extends Controller {
     function form($product_id =null) {
         $this->loadModel('category_model', 'category');
         if($product_id){
-            $this -> viewLoader -> product = $this->model->getProductById($product_id);
+            $this->viewLoader->product = $this->model->getProductById($product_id);
         }
         $this -> viewLoader -> category = $this->category->getCategoryList();
 

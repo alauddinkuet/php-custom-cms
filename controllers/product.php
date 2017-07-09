@@ -38,6 +38,8 @@ class Product extends Controller {
         $this->viewLoader->reviews = $this->review->getReviewByProductId($product['product_id']);
         $this->viewLoader->categories = $this->category_list();
         $this->viewLoader->product = $product;
+        $this->viewLoader->meta_keywords = $product['meta_keywords'];
+        $this->viewLoader->meta_description = $product['meta_description'];
 
 
         $this->viewLoader->images = $this->product->getProductImages($product['product_id']);
