@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.2.11
+-- version 4.5.2
 -- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: Jul 09, 2017 at 04:41 PM
--- Server version: 5.5.40
--- PHP Version: 5.5.19
+-- Host: localhost
+-- Generation Time: Jul 10, 2017 at 10:22 পূর্বাহ্ণ
+-- Server version: 10.1.13-MariaDB
+-- PHP Version: 5.6.20
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `db_custom_cms`
@@ -26,15 +26,15 @@ SET time_zone = "+00:00";
 -- Table structure for table `tbl_category`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_category` (
-`category_id` int(4) unsigned NOT NULL,
-  `parent_category_id` int(4) unsigned NOT NULL DEFAULT '0',
+CREATE TABLE `tbl_category` (
+  `category_id` int(4) UNSIGNED NOT NULL,
+  `parent_category_id` int(4) UNSIGNED NOT NULL DEFAULT '0',
   `category_title` varchar(150) NOT NULL,
   `category_description` text NOT NULL,
   `category_order` int(4) NOT NULL,
-  `active_state` tinyint(1) unsigned NOT NULL DEFAULT '1',
-  `deletion_state` tinyint(1) unsigned NOT NULL DEFAULT '0'
-) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+  `active_state` tinyint(1) UNSIGNED NOT NULL DEFAULT '1',
+  `deletion_state` tinyint(1) UNSIGNED NOT NULL DEFAULT '0'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `tbl_category`
@@ -63,12 +63,38 @@ INSERT INTO `tbl_category` (`category_id`, `parent_category_id`, `category_title
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tbl_content_page`
+--
+
+CREATE TABLE `tbl_content_page` (
+  `page_id` int(11) NOT NULL,
+  `page_name` varchar(200) NOT NULL,
+  `page_name_seo` varchar(200) NOT NULL,
+  `page_content` text NOT NULL,
+  `meta_keywords` varchar(100) NOT NULL,
+  `meta_description` varchar(100) NOT NULL,
+  `active_state` tinyint(1) NOT NULL DEFAULT '1',
+  `created_on` datetime NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `tbl_content_page`
+--
+
+INSERT INTO `tbl_content_page` (`page_id`, `page_name`, `page_name_seo`, `page_content`, `meta_keywords`, `meta_description`, `active_state`, `created_on`) VALUES
+(1, 'About', 'about', '<div>\r\n<h2>About Us?</h2>\r\n\r\n<p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>\r\n</div>\r\n\r\n<div>\r\n<h2>Why do we use it?</h2>\r\n\r\n<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using &#39;Content here, content here&#39;, making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for &#39;lorem ipsum&#39; will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>\r\n</div>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<div>\r\n<h2>Where does it come from?</h2>\r\n\r\n<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of &quot;de Finibus Bonorum et Malorum&quot; (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, &quot;Lorem ipsum dolor sit amet..&quot;, comes from a line in section 1.10.32.</p>\r\n\r\n<p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from &quot;de Finibus Bonorum et Malorum&quot; by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>\r\n</div>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<div>\r\n<h2>Where can I get some?</h2>\r\n\r\n<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don&#39;t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn&#39;t anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>\r\n</div>\r\n', 'About', 'About', 1, '2017-07-10 00:00:00'),
+(2, 'Services', 'services', '<div>\n<h2>What we serve?</h2>\n\n<p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>\n</div>\n\n<div>\n<h2>Why do we use it?</h2>\n\n<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using &#39;Content here, content here&#39;, making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for &#39;lorem ipsum&#39; will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>\n</div>\n\n<p>&nbsp;</p>\n\n<p>&nbsp;</p>\n\n<div>\n<h2>Where does it come from?</h2>\n\n<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of &quot;de Finibus Bonorum et Malorum&quot; (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, &quot;Lorem ipsum dolor sit amet..&quot;, comes from a line in section 1.10.32.</p>\n\n<p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from &quot;de Finibus Bonorum et Malorum&quot; by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>\n</div>\n\n<p>&nbsp;</p>\n\n<div>\n<h2>Where can I get some?</h2>\n\n<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don&#39;t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn&#39;t anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>\n</div>\n', 'Services', 'Services', 1, '2017-07-10 00:00:00'),
+(3, 'Contact Us', 'contact-us', '<div>\r\n<h2>Contact Us</h2>\r\n\r\n<p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>\r\n</div>\r\n\r\n<div>\r\n<h2>Why do we use it?</h2>\r\n\r\n<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using &#39;Content here, content here&#39;, making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for &#39;lorem ipsum&#39; will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>\r\n</div>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<div>\r\n<h2>Where does it come from?</h2>\r\n\r\n<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of &quot;de Finibus Bonorum et Malorum&quot; (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, &quot;Lorem ipsum dolor sit amet..&quot;, comes from a line in section 1.10.32.</p>\r\n\r\n<p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from &quot;de Finibus Bonorum et Malorum&quot; by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>\r\n</div>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<div>\r\n<h2>Where can I get some?</h2>\r\n\r\n<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don&#39;t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn&#39;t anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>\r\n</div>\r\n', 'Contact Us', 'Contact Us', 1, '2017-07-10 00:00:00');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbl_product`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_product` (
-`product_id` int(11) NOT NULL,
-  `category_id` int(11) unsigned NOT NULL DEFAULT '0',
+CREATE TABLE `tbl_product` (
+  `product_id` int(11) NOT NULL,
+  `category_id` int(11) UNSIGNED NOT NULL DEFAULT '0',
   `product_code` varchar(20) NOT NULL,
   `product_name` varchar(200) NOT NULL,
   `product_name_seo` varchar(200) NOT NULL,
@@ -77,11 +103,11 @@ CREATE TABLE IF NOT EXISTS `tbl_product` (
   `meta_keywords` varchar(100) NOT NULL,
   `meta_description` varchar(100) NOT NULL,
   `product_price` decimal(12,2) NOT NULL DEFAULT '0.00',
-  `sort_order` int(11) unsigned NOT NULL DEFAULT '0',
+  `sort_order` int(11) UNSIGNED NOT NULL DEFAULT '0',
   `active_state` tinyint(1) NOT NULL DEFAULT '1',
   `featured` tinyint(1) NOT NULL DEFAULT '0',
   `created_on` datetime NOT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `tbl_product`
@@ -103,14 +129,14 @@ INSERT INTO `tbl_product` (`product_id`, `category_id`, `product_code`, `product
 -- Table structure for table `tbl_product_image`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_product_image` (
-`id` int(11) NOT NULL,
+CREATE TABLE `tbl_product_image` (
+  `id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
   `is_primary` tinyint(1) NOT NULL DEFAULT '0',
   `file_name` varchar(200) NOT NULL,
   `file_org_name` varchar(200) NOT NULL,
   `created_on` datetime NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_product_image`
@@ -151,8 +177,8 @@ INSERT INTO `tbl_product_image` (`id`, `product_id`, `is_primary`, `file_name`, 
 -- Table structure for table `tbl_review`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_review` (
-`review_id` int(11) NOT NULL,
+CREATE TABLE `tbl_review` (
+  `review_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
   `email` varchar(50) NOT NULL,
@@ -160,7 +186,7 @@ CREATE TABLE IF NOT EXISTS `tbl_review` (
   `rating` tinyint(1) NOT NULL DEFAULT '1',
   `status` tinyint(1) NOT NULL DEFAULT '0' COMMENT '0=pending,1=approve,2=unapproved',
   `created_on` datetime NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_review`
@@ -184,13 +210,13 @@ INSERT INTO `tbl_review` (`review_id`, `product_id`, `name`, `email`, `comment`,
 -- Table structure for table `tbl_users`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_users` (
-`id` int(11) NOT NULL,
+CREATE TABLE `tbl_users` (
+  `id` int(11) NOT NULL,
   `username` varchar(25) NOT NULL,
   `password` varchar(64) NOT NULL,
   `sessionId` varchar(64) NOT NULL,
   `level` enum('guest','admin') NOT NULL DEFAULT 'guest'
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_users`
@@ -208,31 +234,43 @@ INSERT INTO `tbl_users` (`id`, `username`, `password`, `sessionId`, `level`) VAL
 -- Indexes for table `tbl_category`
 --
 ALTER TABLE `tbl_category`
- ADD PRIMARY KEY (`category_id`), ADD KEY `parent_category_id` (`parent_category_id`), ADD KEY `parent_category_id_2` (`parent_category_id`);
+  ADD PRIMARY KEY (`category_id`),
+  ADD KEY `parent_category_id` (`parent_category_id`),
+  ADD KEY `parent_category_id_2` (`parent_category_id`);
+
+--
+-- Indexes for table `tbl_content_page`
+--
+ALTER TABLE `tbl_content_page`
+  ADD PRIMARY KEY (`page_id`),
+  ADD UNIQUE KEY `product_name_seo` (`page_name_seo`);
 
 --
 -- Indexes for table `tbl_product`
 --
 ALTER TABLE `tbl_product`
- ADD PRIMARY KEY (`product_id`), ADD UNIQUE KEY `product_name_seo` (`product_name_seo`), ADD KEY `category_id` (`category_id`);
+  ADD PRIMARY KEY (`product_id`),
+  ADD UNIQUE KEY `product_name_seo` (`product_name_seo`),
+  ADD KEY `category_id` (`category_id`);
 
 --
 -- Indexes for table `tbl_product_image`
 --
 ALTER TABLE `tbl_product_image`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `tbl_review`
 --
 ALTER TABLE `tbl_review`
- ADD PRIMARY KEY (`review_id`), ADD KEY `product_id` (`product_id`);
+  ADD PRIMARY KEY (`review_id`),
+  ADD KEY `product_id` (`product_id`);
 
 --
 -- Indexes for table `tbl_users`
 --
 ALTER TABLE `tbl_users`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -242,27 +280,32 @@ ALTER TABLE `tbl_users`
 -- AUTO_INCREMENT for table `tbl_category`
 --
 ALTER TABLE `tbl_category`
-MODIFY `category_id` int(4) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=19;
+  MODIFY `category_id` int(4) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+--
+-- AUTO_INCREMENT for table `tbl_content_page`
+--
+ALTER TABLE `tbl_content_page`
+  MODIFY `page_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `tbl_product`
 --
 ALTER TABLE `tbl_product`
-MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=19;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT for table `tbl_product_image`
 --
 ALTER TABLE `tbl_product_image`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 --
 -- AUTO_INCREMENT for table `tbl_review`
 --
 ALTER TABLE `tbl_review`
-MODIFY `review_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
+  MODIFY `review_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `tbl_users`
 --
 ALTER TABLE `tbl_users`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

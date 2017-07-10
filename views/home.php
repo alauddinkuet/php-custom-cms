@@ -29,9 +29,9 @@
                     <div class="col-sm-4 col-lg-4 col-md-4">
                         <div class="thumbnail">
                             <?php if(isset($item['file_name'])) : ?>
-                                <img src="<?php echo $item['file_name'];?>" alt="">
+                                <img src="<?php echo $item['file_name'];?>" alt="<?php echo $item['product_name'];?>" title="<?php echo $item['product_name'];?>">
                             <?php else : ?>
-                            <img src="http://placehold.it/320x150" alt="">
+                            <img src="http://placehold.it/320x150" alt="<?php echo $item['product_name'];?>" title="<?php echo $item['product_name'];?>">
                             <?php endif;?>
                             <div class="caption">
                                 <h4 class="pull-right price"><span class="currency">৳ </span><?php echo $item['product_price']?></h4>

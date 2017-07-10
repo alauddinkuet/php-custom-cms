@@ -10,7 +10,7 @@
             <div class="carousel-inner">
                 <?php foreach($images as $key => $item) : ?>
                 <div class="item <?php echo $key ? '' : 'active'?>">
-                    <img class="slide-image" src="<?php echo PRODUCT_IMAGE_URL . $item['file_name'];?>" alt="">
+                    <img class="slide-image" src="<?php echo PRODUCT_IMAGE_URL . $item['file_name'];?>" alt="<?php echo $product['product_name']?>">
                 </div>
                 <?php endforeach;?>
             </div>
@@ -29,7 +29,7 @@
     <div class="col-md-12">
     <form class="form-horizontal product-details" action="/action_page.php">
         <div class="form-group">
-            <label class="control-label col-sm-2">Product Name</label>
+            <label class="control-label col-sm-2">Product Price</label>
             <div class="col-sm-10">
                     <span class="spec"><span class="currency">৳ </span><?php echo $product['product_price']?></span>
             </div>
