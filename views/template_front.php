@@ -38,13 +38,13 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="<?php echo BASEPATH?>content/about">About</a>
+                        <a href="<?php echo BASEPATH?>content/about">About Us</a>
                     </li>
                     <li>
-                        <a href="<?php echo BASEPATH?>content/services">Services</a>
+                        <a href="<?php echo BASEPATH?>content/services">Our Services</a>
                     </li>
                     <li>
-                        <a href="<?php echo BASEPATH?>content/contact">Contact</a>
+                        <a href="<?php echo BASEPATH?>content/contact">Contact Us</a>
                     </li>
                 </ul>
             </div>
