@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 10, 2017 at 10:22 পূর্বাহ্ণ
+-- Generation Time: Jul 10, 2017 at 12:02 অপরাহ্ণ
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.20
 
@@ -169,7 +169,9 @@ INSERT INTO `tbl_product_image` (`id`, `product_id`, `is_primary`, `file_name`, 
 (26, 15, 0, 'refrigerator.jpeg', 'refrigerator.jpeg', '2017-07-09 11:26:23'),
 (27, 15, 0, 'refrigerator2.jpeg', 'refrigerator2.jpeg', '2017-07-09 11:26:47'),
 (28, 17, 0, '1499598652.jpeg', 'walton.jpeg', '2017-07-09 13:10:52'),
-(29, 16, 0, '1499598770.jpeg', 'AC2.jpeg', '2017-07-09 13:12:50');
+(29, 16, 1, '1499598770.jpeg', 'AC2.jpeg', '2017-07-09 13:12:50'),
+(30, 16, 0, 'Be-Kid-with-Kids-Article-Header.jpg', 'Be-Kid-with-Kids-Article-Header.jpg', '2017-07-10 11:37:45'),
+(31, 16, 0, 'avatar-1496817533.jpg', 'avatar-1496817533.jpg', '2017-07-10 11:37:52');
 
 -- --------------------------------------------------------
 
@@ -202,7 +204,8 @@ INSERT INTO `tbl_review` (`review_id`, `product_id`, `name`, `email`, `comment`,
 (7, 2, 'tonicadmin', 'khalid@nascenia.com', 'asdff asdfafaf', 1, 0, '2017-07-09 10:38:39'),
 (8, 11, 'Alauddin', 'alauddinkuet@gmail.com', 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don&#39;t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure', 4, 0, '2017-07-09 11:23:18'),
 (9, 11, 'Khalid', 'khalid@nascenia.com', 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don&#39;t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sur', 5, 0, '2017-07-09 11:23:27'),
-(10, 11, 'Akhirul', 'akhirul@nascenia.com', 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don&#39;t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sur', 4, 0, '2017-07-09 11:23:51');
+(10, 11, 'Akhirul', 'akhirul@nascenia.com', 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don&#39;t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sur', 4, 0, '2017-07-09 11:23:51'),
+(11, 11, 'Faruk', 'asdfa@asdf.com', 'f text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.', 5, 0, '2017-07-10 11:39:03');
 
 -- --------------------------------------------------------
 
@@ -295,12 +298,12 @@ ALTER TABLE `tbl_product`
 -- AUTO_INCREMENT for table `tbl_product_image`
 --
 ALTER TABLE `tbl_product_image`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 --
 -- AUTO_INCREMENT for table `tbl_review`
 --
 ALTER TABLE `tbl_review`
-  MODIFY `review_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `review_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `tbl_users`
 --
