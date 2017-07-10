@@ -27,7 +27,7 @@ class Product_Model extends Model
                        DATE_FORMAT(created_on, '%Y-%c-%d') as created_on
                        FROM tbl_product AS p LEFT JOIN 
                        tbl_category AS c ON(p.category_id = c.category_id) LEFT JOIN 
-                       (SELECT product_id, count(*) as review_count, sum(rating) as rating FROM tbl_review GROUP  BY product_id) as r ON(r.product_id = p.product_id) 
+                       (SELECT product_id, count(*) as review_count, AVG(rating) as rating FROM tbl_review GROUP BY product_id) as r ON(r.product_id = p.product_id) 
                        WHERE p.active_state = 1 {$condition} ORDER BY category_title";
 
         $sth = $this -> db -> fetchAllAssoc($sql);
@@ -109,7 +109,10 @@ class Product_Model extends Model
         $result = $this->db->onlyExecute($sql, array($is_primary, $id));
     }
     function getProductBySeoName($name){
-        $sql = "SELECT *FROM tbl_product WHERE product_name_seo = :product_name_seo";
+        
+        $sql = "SELECT p.*, r.review_count, r.rating FROM tbl_product AS p LEFT JOIN 
+                         (SELECT product_id, count(*) as review_count, AVG(rating) as rating FROM tbl_review GROUP BY product_id) as r ON(r.product_id = p.product_id)         
+                         WHERE  p.product_name_seo = :product_name_seo";
         return $this->db->fetchSingle($sql, array(':product_name_seo' => $name));
     }
 

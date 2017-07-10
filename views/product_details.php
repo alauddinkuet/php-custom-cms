@@ -27,13 +27,33 @@
 <div class="clearfix"></div>
 <div class="row">
     <div class="col-md-12">
-    <form class="form-horizontal product-details" action="/action_page.php">
+    <form class="form-horizontal product-details">
+    
+        <div class="form-group">
+            <label class="control-label col-sm-2">Product Rating</label>
+            <div class="col-sm-10 ratings">
+                <?php if($product['review_count']) : ?>
+                <?php for ($i = 1;$i <= 5; $i++) : ?>
+                    <span class="glyphicon glyphicon-star spec <?php echo floor($product['rating']) >= $i ? '' :'glyphicon-star-empty' ?>"></span>
+                <?php endfor;?>
+                <span style="display: inline-block;padding-left:20px;">( <?php echo $product['review_count'] ? $product['review_count'] : '0';?> reviews )</span>
+                <?php else : ?>
+                <span class="glyphicon glyphicon-star spec" ></span>
+                <span class="glyphicon glyphicon-star spec" ></span>
+                <span class="glyphicon glyphicon-star spec" ></span>
+                <span class="glyphicon glyphicon-star spec" ></span>
+                <span class="glyphicon glyphicon-star spec" ></span>
+                <?php endif;?>
+            </div>
+        </div>
+
         <div class="form-group">
             <label class="control-label col-sm-2">Product Price</label>
             <div class="col-sm-10">
-                    <span class="spec"><span class="currency">৳ </span><?php echo $product['product_price']?></span>
+               <span class="spec"><span class="currency">৳ </span><?php echo $product['product_price']?></span>
             </div>
         </div>
+                    
         <div class="form-group">
             <label class="control-label col-sm-2">Product Code</label>
             <div class="col-sm-10">

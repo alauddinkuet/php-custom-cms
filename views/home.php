@@ -44,7 +44,7 @@
                 <p>
                     <?php if($item['review_count']) : ?>
                         <?php for ($i = 1;$i <= 5; $i++) : ?>
-                            <span class="glyphicon glyphicon-star <?php echo floor($item['rating']/$item['review_count']) >= $i ? '' :'glyphicon-star-empty' ?>"></span>
+                            <span class="glyphicon glyphicon-star <?php echo floor($item['rating']) >= $i ? '' :'glyphicon-star-empty' ?>"></span>
                         <?php endfor;?>
                     <?php else : ?>
                     <span class="glyphicon glyphicon-star" ></span>
