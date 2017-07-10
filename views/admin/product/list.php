@@ -21,7 +21,7 @@
             if(in_array($key, $ignore))
                 continue;
             if($key == 'product_price')
-                $val = 'BDT ' . $val;
+                $val = '<span class="currency">৳ </span>' . $val;
             echo '<td><span>' . $val . '</span></td>';
         }
         echo '<td class="text-center" style="width:20px;"> 

@@ -31,7 +31,7 @@
         <div class="form-group">
             <label class="control-label col-sm-2">Product Name</label>
             <div class="col-sm-10">
-                <span class="spec"><span class="currency">BDT </span><?php echo $product['product_price']?></span>
+                    <span class="spec"><span class="currency">৳ </span><?php echo $product['product_price']?></span>
             </div>
         </div>
         <div class="form-group">
